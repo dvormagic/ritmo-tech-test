@@ -6,7 +6,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/segmentio/ksuid"
-	log "github.com/sirupsen/logrus"
 
 	"ritmoexample/cmd/errors"
 	"ritmoexample/cmd/models"
@@ -101,8 +100,6 @@ func (s *Server) Update(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, errors.NewError(err.Error()))
 		return
 	}
-
-	log.Info(jsonReq.FiscalID)
 
 	company.Name = jsonReq.Name
 	company.FiscalID = jsonReq.FiscalID

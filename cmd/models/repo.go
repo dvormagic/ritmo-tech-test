@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 
 	"github.com/juju/errors"
-	log "github.com/sirupsen/logrus"
 )
 
 var Repo *LocalStorage
@@ -43,7 +42,6 @@ func (repo *LocalStorage) SetCompany(company *Company) error {
 		Repo.StoredCompanies = append(Repo.StoredCompanies, company)
 	}
 
-	log.Info(repo.StoredCompanies)
 	bytes, err := json.Marshal(Repo)
 	if err != nil {
 		return errors.Trace(err)
