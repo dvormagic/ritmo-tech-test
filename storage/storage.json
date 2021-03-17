@@ -1,0 +1,25 @@
+{
+  "companies": [
+    {
+      "ID": "1ptvAHelKrQFQDvKgjsmhdBMHwj",
+      "Name": "holaeee",
+      "FiscalID": "foa",
+      "Address": "bar",
+      "AddressLineTwo": "baz",
+      "Region": "Almería",
+      "City": "El Ejido"
+    }
+  ],
+  "offers": [
+    {
+      "ID": "1ptvEhTBrG0ly50GmF4V3pChdBB",
+      "CompanyID": "1ptvAHelKrQFQDvKgjsmhdBMHwj",
+      "Status": "STATUS_REJECTED",
+      "Charges": 6,
+      "SalesPercentage": 6,
+      "Accepted": true,
+      "RawAdvance": "150000.00",
+      "RawRefund": "159000.00"
+    }
+  ]
+}
