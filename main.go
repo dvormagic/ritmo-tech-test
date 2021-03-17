@@ -33,7 +33,7 @@ func main() {
 	router.POST("/offers", offersServer.Create)
 	// Update offer status
 	router.PUT("/offers/:id/status", offersServer.UpdateStatus)
-	// Update if user accept the offer
+	// Update if user accepts the offer
 	router.PUT("/offers/:id/accepted", offersServer.UpdateAccepted)
 
 	router.Run(":8080")
