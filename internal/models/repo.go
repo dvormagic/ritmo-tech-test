@@ -73,6 +73,15 @@ func (repo *LocalStorage) Offers() map[string]*Offer {
 	return offers
 }
 
+func (repo *LocalStorage) OffersByCompany() map[string]*Offer {
+	offers := map[string]*Offer{}
+	for _, offer := range Repo.StoredOffers {
+		offers[offer.CompanyID] = offer
+	}
+
+	return offers
+}
+
 func (repo *LocalStorage) SetOffer(offer *Offer) error {
 	if !checkOffer(Repo.StoredOffers, offer) {
 		Repo.StoredOffers = append(Repo.StoredOffers, offer)

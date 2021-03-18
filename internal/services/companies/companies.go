@@ -7,8 +7,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/segmentio/ksuid"
 
-	"ritmoexample/cmd/errors"
-	"ritmoexample/cmd/models"
+	"ritmoexample/internal/errors"
+	"ritmoexample/internal/models"
 )
 
 type Server struct{}

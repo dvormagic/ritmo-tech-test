@@ -4,9 +4,9 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 
-	"ritmoexample/cmd/models"
-	"ritmoexample/cmd/services/companies"
-	"ritmoexample/cmd/services/offers"
+	"ritmoexample/internal/models"
+	"ritmoexample/internal/services/companies"
+	"ritmoexample/internal/services/offers"
 )
 
 func main() {
@@ -29,6 +29,8 @@ func main() {
 
 	// Get offers
 	router.GET("/offers/:id", offersServer.Get)
+	// Get offers by company
+	router.GET("/offers-company/:company-id", offersServer.GetByCompany)
 	// Create a new offer
 	router.POST("/offers", offersServer.Create)
 	// Update offer status

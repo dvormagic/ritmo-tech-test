@@ -8,8 +8,8 @@ import (
 	"github.com/segmentio/ksuid"
 	"libs.altipla.consulting/money"
 
-	"ritmoexample/cmd/errors"
-	"ritmoexample/cmd/models"
+	"ritmoexample/internal/errors"
+	"ritmoexample/internal/models"
 )
 
 type Server struct{}
@@ -56,6 +56,26 @@ func (s *Server) Get(ctx *gin.Context) {
 	offer, ok := models.Repo.Offers()[req.ID]
 	if !ok {
 		ctx.JSON(http.StatusNotFound, errors.NewError(fmt.Sprintf("offer not found: %s", req.ID)))
+		return
+	}
+
+	ctx.JSON(http.StatusOK, serializeOffer(offer))
+}
+
+type getByCompanyRequest struct {
+	CompanyID string `uri:"company-id"`
+}
+
+func (s *Server) GetByCompany(ctx *gin.Context) {
+	var req getByCompanyRequest
+	if err := ctx.ShouldBindUri(&req); err != nil {
+		ctx.JSON(http.StatusBadRequest, errors.NewError(err.Error()))
+		return
+	}
+
+	offer, ok := models.Repo.OffersByCompany()[req.CompanyID]
+	if !ok {
+		ctx.JSON(http.StatusNotFound, errors.NewError(fmt.Sprintf("not offer with company found: %s", req.CompanyID)))
 		return
 	}
 
